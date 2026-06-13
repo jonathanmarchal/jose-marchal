@@ -40,7 +40,7 @@ export default async function ConcertPage({ params }) {
   return (
     <main className="detail-page">
       <Link className="back-link" href="/#concerten">← Terug naar concerten</Link>
-      <article className="concert-detail" aria-live="polite">
+      <article className="concert-detail reveal" aria-live="polite">
         <p className="concert-meta">{concert.ensemble}</p>
         <h1>{concert.title}</h1>
         <dl className="detail-meta">

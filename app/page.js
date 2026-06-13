@@ -11,7 +11,7 @@ export default async function HomePage() {
     <main id="top">
       <Hero />
 
-      <section id="concerten" className="concerts" aria-labelledby="concerts-title">
+      <section id="concerten" className="concerts reveal" aria-labelledby="concerts-title">
         <h2 id="concerts-title" className="section-title">Concerten</h2>
         <div className="concert-list" aria-live="polite">
           <ConcertList concerts={concerts} emptyMessage="Er zijn op dit moment geen aankomende concerten gepubliceerd." />
@@ -19,7 +19,7 @@ export default async function HomePage() {
         <a className="archive-link" href="/archief">Bekijk het concertarchief</a>
       </section>
 
-      <section id="biografie" className="bio" aria-labelledby="bio-title">
+      <section id="biografie" className="bio reveal" aria-labelledby="bio-title">
         <div className="bio-copy">
           <h2 id="bio-title">Biografie</h2>
           <p>José Marchal-Donkersloot volgde koordirectievakken op Hogeschool Bourdon. In 2019 is ze begonnen met koordirectie aan het Rotterdams conservatorium (Codarts) bij Wiecher Mandemaker.</p>

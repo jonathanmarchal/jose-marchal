@@ -9,7 +9,8 @@
     "venue": "Sint-Jan Gouda",
     "city": "Gouda",
     "description": "Concert met werk van G.F. Händel.",
-    "ticketUrl": ""
+    "ticketUrl": "",
+    "time": "14:30 – 17:00"
   },
   {
     "slug": "festival-lessons-carols-mijnsheerenland",
@@ -21,7 +22,8 @@
     "venue": "Mijnsheerenland",
     "city": "Mijnsheerenland",
     "description": "Een sfeervol Festival of Lessons and Carols.",
-    "ticketUrl": ""
+    "ticketUrl": "",
+    "time": "14:30 – 17:00"
   },
   {
     "slug": "festival-lessons-carols-lutherse-kerk-rotterdam",
@@ -33,7 +35,8 @@
     "venue": "Lutherse Kerk Rotterdam",
     "city": "Rotterdam",
     "description": "Festival of Lessons and Carols in de Lutherse Kerk Rotterdam.",
-    "ticketUrl": ""
+    "ticketUrl": "",
+    "time": "14:30 – 17:00"
   },
   {
     "slug": "bachconcert-dordrecht",
@@ -45,6 +48,7 @@
     "venue": "Dordrecht",
     "city": "Dordrecht",
     "description": "Bachconcert door Laurens Kamerkoor.",
-    "ticketUrl": ""
+    "ticketUrl": "",
+    "time": "14:30 – 17:00"
   }
 ]

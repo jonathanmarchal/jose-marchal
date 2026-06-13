@@ -22,6 +22,7 @@ Maak een database `Concerten` met deze properties:
 | --- | --- | --- |
 | Titel | Title | Ja |
 | Datum | Date | Ja |
+| Tijd | Text | Nee |
 | Starttijd | Text | Nee |
 | Eindtijd | Text | Nee |
 | Ensemble | Text | Nee |
@@ -32,6 +33,8 @@ Maak een database `Concerten` met deze properties:
 | Afbeelding | Files & media | Nee |
 | Slug | Text | Nee |
 | Gepubliceerd | Checkbox | Nee |
+
+`Tijd` is het veld dat in het overzicht en op de detailpagina wordt getoond, bijvoorbeeld `14:30 – 17:00`. De oudere velden `Starttijd` en `Eindtijd` blijven als fallback werken.
 
 `Slug` bepaalt de URL, bijvoorbeeld `/concert/bachconcert-dordrecht`. Als Slug leeg is, maakt de site automatisch een slug op basis van titel, plaats en datum.
 
@@ -93,3 +96,21 @@ De detailpagina van een verlopen concert blijft gewoon werken via:
 ```
 
 Je hoeft hiervoor niets extra's in Notion te doen. De site kijkt naar de property `Datum` en vergelijkt die met de huidige datum in Nederland.
+
+
+## 8. Archief
+
+De homepage toont alleen aankomende concerten. De website gebruikt de datum in het Notion-veld `Datum` en vergelijkt die met de huidige datum in de Nederlandse tijdzone (`Europe/Amsterdam`).
+
+- Concertdatum vandaag of later: zichtbaar op de homepage.
+- Concertdatum vóór vandaag: zichtbaar op `/archief`.
+
+Voorbeeld: als het vandaag 13 juni is, gaat een concert van 12 juni automatisch naar `/archief`.
+
+## 9. Animaties en favicon
+
+Deze versie bevat:
+
+- Favicon met de initialen `JMD`, met lichte en donkere variant.
+- Subtiele animatie bij de hero-label `Dirigente & Alt`.
+- Smooth fade-in on scroll voor concerten, biografie en detailblokken.

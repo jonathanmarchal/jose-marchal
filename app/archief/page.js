@@ -15,7 +15,7 @@ export default async function ArchivePage() {
   return (
     <main className="archive-page">
       <Link className="back-link" href="/#concerten">← Terug naar concerten</Link>
-      <section className="concerts archive-concerts" aria-labelledby="archive-title">
+      <section className="concerts archive-concerts reveal" aria-labelledby="archive-title">
         <h1 id="archive-title" className="section-title">Concertarchief</h1>
         <p className="archive-intro">Eerdere concerten worden automatisch hier geplaatst zodra de concertdatum voorbij is.</p>
         <div className="concert-list" aria-live="polite">

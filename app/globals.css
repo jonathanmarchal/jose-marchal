@@ -409,3 +409,59 @@ a { color: inherit; text-decoration: none; }
   .detail-meta { grid-template-columns: 1fr; }
   .concert-detail { padding: 30px 22px; }
 }
+
+.hero-label img {
+  animation: hero-arrow-float 3.8s cubic-bezier(.45, 0, .25, 1) infinite;
+}
+
+.hero-label p {
+  animation: hero-label-fade 4.6s cubic-bezier(.45, 0, .25, 1) infinite;
+}
+
+@keyframes hero-arrow-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: .82; }
+  45% { transform: translate3d(-8px, -8px, 0) rotate(-5deg); opacity: 1; }
+  70% { transform: translate3d(-3px, -3px, 0) rotate(-2deg); opacity: .94; }
+}
+
+@keyframes hero-label-fade {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: .86; }
+  45% { transform: translate3d(0, -7px, 0); opacity: 1; }
+  70% { transform: translate3d(0, -3px, 0); opacity: .96; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 34px, 0);
+  transition: opacity .9s cubic-bezier(.2, .8, .2, 1), transform .9s cubic-bezier(.2, .8, .2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal .concert-item {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity .75s cubic-bezier(.2, .8, .2, 1), transform .75s cubic-bezier(.2, .8, .2, 1), background .25s ease, padding-inline .25s ease, border-color .25s ease;
+}
+
+.reveal.is-visible .concert-item {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal.is-visible .concert-item:nth-child(2) { transition-delay: .06s; }
+.reveal.is-visible .concert-item:nth-child(3) { transition-delay: .12s; }
+.reveal.is-visible .concert-item:nth-child(4) { transition-delay: .18s; }
+.reveal.is-visible .concert-item:nth-child(5) { transition-delay: .24s; }
+.reveal.is-visible .concert-item:nth-child(n+6) { transition-delay: .30s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-label img,
+  .hero-label p { animation: none !important; }
+  .reveal,
+  .reveal .concert-item { opacity: 1 !important; transform: none !important; transition: none !important; }
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    rect { fill: #F7F2EF; }
+    text { fill: #090A07; font-family: 'Brygada 1918', Georgia, serif; font-weight: 600; }
+    @media (prefers-color-scheme: dark) {
+      rect { fill: #090A07; }
+      text { fill: #F7F2EF; }
+    }
+  </style>
+  <rect width="64" height="64" rx="14"/>
+  <text x="32" y="39" text-anchor="middle" font-size="24" letter-spacing="-2">JMD</text>
+</svg>
