@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Brygada+1918:opsz,wght@12..48,400;12..48,500&display=swap');
+
+:root {
+  --cream: #f7f2ef;
+  --cream-soft: rgba(247, 242, 239, .9);
+  --cream-muted: rgba(247, 242, 239, .3);
+  --orange: rgba(255, 144, 47, .7);
+  --background: #090a07;
+  --panel: #0f100c;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--cream);
+  font-family: 'Albert Sans', system-ui, sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+
+.hero {
+  position: relative;
+  height: min(70vw, 910px);
+  min-height: 720px;
+  margin: 34px auto 150px;
+  width: min(calc(100vw - 58px), 1500px);
+  border-radius: 8px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+.heroBackground {
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+  filter: brightness(.76) saturate(.95);
+  transform: scale(1.01);
+}
+.tickerLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+.tickerTrack {
+  display: flex;
+  width: max-content;
+  animation: ticker 170s linear infinite;
+  white-space: nowrap;
+  font-family: 'Brygada 1918', serif;
+  font-size: clamp(140px, 15.8vw, 270px);
+  letter-spacing: -.064em;
+  line-height: .76;
+  color: var(--cream-soft);
+  transform: translate3d(-7%, -4%, 0);
+}
+.tickerTrack span { padding-right: .16em; }
+.heroPerson {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: -2.5%;
+  width: clamp(330px, 29vw, 480px);
+  height: auto;
+  transform: translateX(-50%);
+}
+.heroLabel {
+  position: absolute;
+  z-index: 3;
+  left: 67.8%;
+  top: 61.5%;
+  display: block;
+  font-size: clamp(21px, 1.85vw, 31px);
+  line-height: .9;
+  font-weight: 500;
+  letter-spacing: -.035em;
+  color: var(--cream);
+  animation: floatLabel 3.2s ease-in-out infinite;
+  will-change: transform;
+}
+.heroLabelArrow {
+  display: block;
+  width: clamp(24px, 2.5vw, 40px);
+  height: auto;
+  margin: 0 0 22px -48px;
+  animation: arrowPulse 2.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes ticker {
+  from { transform: translate3d(-7%, -4%, 0); }
+  to { transform: translate3d(-32%, -4%, 0); }
+}
+@keyframes floatLabel {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(14px, 24px, 0); }
+}
+@keyframes arrowPulse {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: .9; }
+  50% { transform: translate3d(12px, 14px, 0) rotate(8deg); opacity: 1; }
+}
+
+@supports (animation-timeline: scroll()) {
+  .parallaxLabel {
+    animation-name: labelScroll, floatLabel;
+    animation-duration: 1s, 3.2s;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: 1, infinite;
+    animation-fill-mode: both, none;
+    animation-timeline: scroll(root), auto;
+    animation-range: 0 620px;
+  }
+  @keyframes labelScroll {
+    from { translate: 0 0; }
+    to { translate: 32px 56px; }
+  }
+}
+
+.concerts {
+  width: min(74vw, 1120px);
+  margin: 0 auto 150px;
+}
+.sectionTitle {
+  margin: 0 0 34px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(247,242,239,.09);
+  font-family: 'Brygada 1918', serif;
+  font-size: clamp(56px, 7vw, 96px);
+  line-height: .95;
+  font-weight: 400;
+  color: var(--cream-soft);
+}
+.concertList {
+  margin-top: 0;
+}
+.emptyState {
+  margin: 0;
+  color: var(--cream-muted);
+  font-size: 18px;
+}
+.concertItem {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 30px;
+  align-items: center;
+  min-height: 146px;
+  border-bottom: 1px solid rgba(247,242,239,.09);
+  padding: 24px 0;
+  transition: background .25s ease, padding .25s ease, transform .25s ease;
+}
+.concertItem:hover {
+  background: rgba(247, 242, 239, .025);
+  padding-left: 28px;
+  padding-right: 18px;
+  transform: translateY(-2px);
+}
+.ensemble {
+  margin: 0 0 10px;
+  color: var(--orange);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: .02em;
+}
+.concertItem h2 {
+  margin: 0;
+  font-family: 'Brygada 1918', serif;
+  font-size: clamp(31px, 4.5vw, 48px);
+  font-weight: 400;
+  line-height: .98;
+  color: var(--cream-soft);
+}
+.concertMeta {
+  display: flex;
+  gap: 44px;
+  align-items: center;
+  color: var(--cream-soft);
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.concertArrow {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(247,242,239,.14);
+  color: var(--cream);
+  font-size: 24px;
+  line-height: 1;
+  transition: transform .28s cubic-bezier(.2,.8,.2,1), background .28s ease;
+  transform-origin: center;
+}
+.concertItem:hover .concertArrow {
+  transform: rotate(45deg);
+  background: rgba(255,144,47,.24);
+}
+
+.bio {
+  width: min(93vw, 1220px);
+  margin: 0 auto 90px;
+  padding: clamp(38px, 7vw, 88px);
+  background: var(--panel);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr .85fr;
+  gap: 70px;
+  align-items: center;
+}
+.bio h2, .detailOverlay h1 {
+  font-family: 'Brygada 1918', serif;
+  font-size: clamp(48px, 7vw, 82px);
+  line-height: .95;
+  font-weight: 400;
+  margin: 0 0 26px;
+}
+.bio p {
+  color: var(--cream-soft);
+  font-size: 18px;
+  line-height: 1.7;
+}
+.bioImages {
+  position: relative;
+  min-height: 450px;
+}
+.bioImages img {
+  position: absolute;
+  width: 58%;
+  height: auto;
+  border-radius: 8px;
+}
+.bioImages img:first-child { left: 0; top: 0; z-index: 2; }
+.bioImages img:last-child { right: 0; bottom: 0; }
+
+.detailPage { width: min(93vw, 1220px); margin: 34px auto 90px; }
+.backLink { display: inline-block; margin-bottom: 22px; color: var(--cream-soft); }
+.detailHero {
+  position: relative;
+  min-height: 560px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.detailImage { object-fit: cover; filter: brightness(.62); }
+.detailOverlay { position: absolute; inset: auto 50px 50px; }
+.detailContent {
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 80px;
+  padding: 70px 0;
+}
+.detailMeta {
+  color: var(--cream-soft);
+  font-size: 18px;
+  line-height: 1.5;
+}
+.detailText {
+  font-size: clamp(22px, 3vw, 34px);
+  line-height: 1.35;
+  font-family: 'Brygada 1918', serif;
+  color: var(--cream-soft);
+}
+.ticketButton {
+  display: inline-flex;
+  margin-top: 26px;
+  padding: 16px 22px;
+  border-radius: 999px;
+  background: var(--cream);
+  color: var(--background);
+  font-family: 'Albert Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@media (max-width: 850px) {
+  .hero {
+    width: min(calc(100vw - 28px), 1500px);
+    height: 640px;
+    min-height: 640px;
+    margin-top: 18px;
+    margin-bottom: 90px;
+  }
+  .tickerTrack { font-size: clamp(92px, 29vw, 150px); }
+  .heroPerson { width: min(70vw, 390px); bottom: -1%; }
+  .heroLabel { left: 58%; top: 63%; font-size: 19px; }
+  .heroLabelArrow { margin-left: -30px; margin-bottom: 12px; }
+  .concerts { width: min(90vw, 1040px); }
+  .concertItem { grid-template-columns: 1fr; }
+  .concertMeta { justify-content: space-between; }
+  .bio, .detailContent { grid-template-columns: 1fr; }
+  .bioImages { min-height: 360px; }
+  .detailOverlay { inset: auto 24px 30px; }
+}
