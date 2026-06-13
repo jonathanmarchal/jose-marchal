@@ -76,3 +76,20 @@ https://jouw-site.vercel.app/api/concerts
 ```
 
 Als Notion goed gekoppeld is, zie je je concerten als JSON terug.
+
+
+## Concertarchief
+
+De homepage toont alleen aankomende concerten. Een concert blijft op de homepage staan tot en met de concertdatum. Vanaf de volgende dag verhuist het automatisch naar:
+
+```text
+/archief
+```
+
+De detailpagina van een verlopen concert blijft gewoon werken via:
+
+```text
+/concert/jouw-slug
+```
+
+Je hoeft hiervoor niets extra's in Notion te doen. De site kijkt naar de property `Datum` en vergelijkt die met de huidige datum in Nederland.

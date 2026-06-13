@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { formatDate, formatTimeRange } from '@/lib/notion';
 
-export default function ConcertList({ concerts }) {
+export default function ConcertList({ concerts, emptyMessage = 'Er zijn nog geen concerten gepubliceerd.' }) {
   if (!concerts.length) {
-    return <p className="concert-loading">Er zijn nog geen concerten gepubliceerd.</p>;
+    return <p className="concert-loading">{emptyMessage}</p>;
   }
 
   return concerts.map((concert) => (

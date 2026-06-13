@@ -280,6 +280,39 @@ a { color: inherit; text-decoration: none; }
   font-size: 18px;
 }
 
+.archive-link {
+  display: inline-block;
+  margin-top: 34px;
+  color: var(--cream-90);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .72;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.archive-link:hover {
+  opacity: 1;
+  transform: translateX(6px);
+}
+
+.archive-page {
+  padding-top: clamp(28px, 6vw, 72px);
+}
+
+.archive-concerts {
+  margin-top: 0;
+}
+
+.archive-intro {
+  max-width: 620px;
+  margin: 0 0 34px;
+  color: var(--cream-30);
+  font-size: clamp(17px, 1.6vw, 20px);
+  line-height: 1.55;
+}
+
 .detail-page {
   width: min(1099px, calc(100% - 44px));
   margin: clamp(28px, 6vw, 72px) auto clamp(70px, 12vw, 154px);

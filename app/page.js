@@ -1,11 +1,11 @@
 import Hero from './components/Hero';
 import ConcertList from './components/ConcertList';
-import { getConcerts } from '@/lib/notion';
+import { getConcerts, getUpcomingConcerts } from '@/lib/notion';
 
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const concerts = await getConcerts();
+  const concerts = getUpcomingConcerts(await getConcerts());
 
   return (
     <main id="top">
@@ -14,8 +14,9 @@ export default async function HomePage() {
       <section id="concerten" className="concerts" aria-labelledby="concerts-title">
         <h2 id="concerts-title" className="section-title">Concerten</h2>
         <div className="concert-list" aria-live="polite">
-          <ConcertList concerts={concerts} />
+          <ConcertList concerts={concerts} emptyMessage="Er zijn op dit moment geen aankomende concerten gepubliceerd." />
         </div>
+        <a className="archive-link" href="/archief">Bekijk het concertarchief</a>
       </section>
 
       <section id="biografie" className="bio" aria-labelledby="bio-title">
